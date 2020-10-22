@@ -1,9 +1,8 @@
-const express = require("express"),
-  app = express();
+const express = require('express');
 
-app.get("/", (req, res) => {
-  res.json({ Status: "working" });
-});
+const app = express();
+
+require('./routes/weatherRoutes')(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server Started at ${PORT}`));
