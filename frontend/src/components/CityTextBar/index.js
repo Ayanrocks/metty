@@ -1,3 +1,3 @@
-import CityTextBar from "./CityTextBar";
+import CityTextBar from './CityTextBar';
 
 export default CityTextBar;

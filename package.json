@@ -1,13 +1,30 @@
 {
-  "devDependencies": {
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.21.5"
+  "name": "metty",
+  "version": "1.0.0",
+  "main": ".eslintrc.js",
+  "scripts": {
+    "dev": "nodemon -r ./app.js",
+    "start": "node app.js"
   },
   "dependencies": {
+    "axios": "^0.21.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "redis": "^3.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ayanrocks/metty.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ayanrocks/metty/issues"
+  },
+  "homepage": "https://github.com/Ayanrocks/metty#readme",
+  "description": "",
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^14.2.0",
+    "nodemon": "^2.0.6"
   }
 }
