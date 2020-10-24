@@ -2,7 +2,6 @@ import React from 'react';
 
 export default function CardsCircleDisplay(props) {
   const { weatherData } = props;
-  console.log(props);
   return (
     <div
       style={{
@@ -15,10 +14,9 @@ export default function CardsCircleDisplay(props) {
           padding: '20px',
           width: '350px',
           height: '350px',
-          borderRadius: '50%',
           textAlign: 'center',
           boxShadow: '0 2px 5px rgba(0,0,0,0.4)',
-          backgroundColor: '#eee',
+          backgroundColor: '#fff',
           opacity: '57%',
           zIndex: 2,
           display: 'flex',
@@ -39,7 +37,7 @@ export default function CardsCircleDisplay(props) {
         <div
           style={{
             height: '120px',
-            margin: 0,
+            margin: '-20px 0 0 0',
           }}
         >
           <p
@@ -52,24 +50,32 @@ export default function CardsCircleDisplay(props) {
             <span style={{ fontSize: 64 }}>C</span>
           </p>
         </div>
-        <div>
-          <p style={{ fontSize: 16, color: '#000' }}>
-            Feels Like: {weatherData.feelsLike}&#176;C
-          </p>
-        </div>
-        <div>
-          <p style={{ fontSize: 16, color: '#000' }}>
-            Humidity: {weatherData.humidity}%
-          </p>
-        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'space-evenly',
+          }}
+        >
+          <div>
+            <p style={{ fontSize: 16, color: '#000' }}>
+              Feels Like: {weatherData.feelsLike}&#176;C
+            </p>
+          </div>
+          <div>
+            <p style={{ fontSize: 16, color: '#000' }}>
+              Humidity: {weatherData.humidity}%
+            </p>
+          </div>
 
-        <div>
-          <p style={{ fontSize: 16, color: '#000' }}>
-            Cloudiness: {weatherData.cloudiness}%
-          </p>
+          <div>
+            <p style={{ fontSize: 16, color: '#000' }}>
+              Cloudiness: {weatherData.cloudiness}%
+            </p>
+          </div>
         </div>
         <div>
-          <p style={{ fontSize: 19, color: '#000' }}>
+          <p style={{ fontSize: 25, color: '#000' }}>
             {weatherData.weatherType}
           </p>
         </div>

@@ -37,7 +37,6 @@ function getFromRedis(key) {
       if (err) {
         reject(err);
       }
-      console.log("Data", data);
       resolve(data);
     });
   });

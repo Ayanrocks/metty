@@ -7,7 +7,6 @@ export default function CityTextBar(props) {
   // To keep things simple this error is expected to happen.
   const [location, setLocation] = useState('');
   const handleSearch = () => {
-    console.log(location);
     props.getWeatherData(location);
   };
   return (
@@ -32,6 +31,7 @@ export default function CityTextBar(props) {
           minWidth: '180px',
           flex: 80,
         }}
+        value={location}
         onChange={(e) => setLocation(e.target.value)}
         onKeyDown={(e) => {
           if (e.key === 'Enter') handleSearch();

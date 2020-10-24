@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardsCircleDisplay component it renders and matches with snapshot 1`] = `ShallowWrapper {}`;

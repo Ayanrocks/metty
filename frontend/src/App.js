@@ -9,13 +9,15 @@ const { Header, Footer, Content } = Layout;
 
 function App() {
   const [weatherData, setWeatherData] = useState({});
+  const [errorMsg, setErrorMsg] = useState('');
   const getWeatherData = (location) => {
     if (location) {
       axios
         .get(`/api/v1/getForecast/${location}`)
         .then((r) => {
           const { data } = r;
-          if (data) {
+          if (data && data.main) {
+            setErrorMsg();
             const w = {
               name: data.name,
               temp: Math.floor(data.main.temp),
@@ -27,9 +29,12 @@ function App() {
             };
             setWeatherData(w);
           }
+          if (data === 'Request failed with status code 404')
+            setErrorMsg(`City Not Found ${location}`);
         })
         .catch((e) => {
           console.error(e);
+          setErrorMsg(e.message.data);
         });
     }
   };
@@ -51,14 +56,27 @@ function App() {
           Metty
         </Header>
         <Content>
-          {/* <div className="city-bg" /> */}
-          {/* <div className="city-bg-overlay" /> */}
           <Layout>
             <CityTextBar getWeatherData={getWeatherData} />
           </Layout>
           <Layout>
             {weatherData && Object.keys(weatherData).length > 0 && (
               <CardsCircleDisplay weatherData={weatherData} />
+            )}
+            {errorMsg && (
+              <div
+                style={{
+                  backgroundColor: '#e83535',
+                  padding: '5px',
+                  minWidth: '250px',
+                  fontSize: '2rem',
+                  color: '#fff',
+                  width: '20vw',
+                  margin: '0 auto',
+                }}
+              >
+                <p>{errorMsg}</p>
+              </div>
             )}
           </Layout>
         </Content>

@@ -13,15 +13,12 @@ module.exports = (app) => {
     try {
       const data = await getFromRedis(location.toLowerCase());
       if (data) {
-        console.log(("data in app", data));
         res.json(JSON.parse(data));
       } else {
-        console.log("fewthci");
         getWeatherOfCity(location.toLowerCase())
           .then((r) => {
             if (r !== "Request failed with status code 404") {
-              console.log("Setting in redis");
-              setToRedis(location.toLowerCase(), JSON.stringify(r.data));
+              setToRedis(location.toLowerCase(), JSON.stringify(r));
             }
             res.json(r);
           })
